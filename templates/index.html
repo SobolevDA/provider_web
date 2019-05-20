@@ -3,11 +3,22 @@
 {% block form %}
 
 <form>
-          
-          <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
-          </div>
-        </div>
-      </form>
+    <div class="form-row align-items-center">
+      <div class="col-auto my-1">
+       <input type="date" name="begin_date" value="2019-03-01">
+      </div>
+      <div class="col-auto my-1"> 
+       <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Услуга</option>
+          {% for id_name in service %}
+          <option value="{{id_name.id}}">{{ id_name.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-auto my-1">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
 
 {% endblock %}
