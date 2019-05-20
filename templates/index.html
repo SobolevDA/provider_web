@@ -11,7 +11,7 @@
        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
           <option selected>Услуга</option>
           {% for id_name in service %}
-          <option value="{{id_name.id}}">{{ id_name.name }}</option>
+          <option value="{{ id_name.id }}">{{ id_name.name }}</option>
           {% endfor %}
         </select>
       </div>
