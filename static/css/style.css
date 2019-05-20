@@ -1,0 +1,11 @@
+.bg-light {
+    background-color: #0202ff !important;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-brand {
+    color: white !important;
+}
+
+.form-row  {
+    margin-left: 5px !important;
+}

@@ -2,7 +2,7 @@
 
 {% block form %}
 
-<form>
+<form method="POST" action="/count/">
     <div class="form-row align-items-center">
       <div class="col-auto my-1">
        <input type="date" name="begin_date" value="2019-03-01">
@@ -16,7 +16,10 @@
         </select>
       </div>
       <div class="col-auto my-1">
-        <button type="submit" class="btn btn-primary">Submit</button>
+          <input type="date" name="end_date" value="2019-04-01">
+         </div>
+      <div class="col-auto my-1">
+        <button type="submit" class="btn btn-primary">ЖГИ!!!</button>
       </div>
     </div>
   </form>
