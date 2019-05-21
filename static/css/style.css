@@ -1,5 +1,5 @@
 .bg-light {
-    background-color: #0202ff !important;
+    background-color: #017bff !important;
 }
 
 .navbar-light .navbar-nav .active>.nav-link, .navbar-brand {
@@ -8,4 +8,10 @@
 
 .form-row  {
     margin-left: 5px !important;
+}
+
+.alert-warning{
+    color: white !important;
+    background-color: #017bffc9 !important;
+    border-color: #017bffc9 !important
 }

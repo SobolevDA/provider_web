@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block inform %}
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{ discount }}  чебурашек, за период с {{ begin }} по {{ end }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+{% endblock %}
