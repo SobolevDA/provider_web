@@ -7,6 +7,8 @@ database.connect()
 
 service_customer = Service.select(Service.id, Service.name).where(Service.id << (97, 59, 58, 47, 50, 48, 46, 153, 49, 137))
 
+ktv_service = Service.select(Service.id, Service.name).where(Service.id << (99, 100))
+
 
 def count_dis(begin, end, id):
     dis = []

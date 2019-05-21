@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block ktv %}
+
+<form method="POST" action="/ktv/geberal_ktv/">
+        <div class="form-row align-items-center">
+                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Общее кол-во абонентов КТВ</label>
+            <div class="col-auto my-1">
+                
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <option selected>Услуга КТВ</option>
+              {% for ktv_id in ktv_service %}
+              <option value="{{ ktv_id.id }}">{{ ktv_id.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-auto my-1">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+
+{% endblock %}

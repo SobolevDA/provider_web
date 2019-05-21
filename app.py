@@ -1,35 +1,52 @@
 from flask import Flask, render_template, request
-from query_select import service_customer, count_dis
-from query_date import date_time
+from query_select import service_customer, count_dis, ktv_service
+from query_data import date_time
 
 app = Flask(__name__)
 
+### main rout
 
 @app.route('/')
-def hello():
-    return render_template('index.html', service=service_customer)
+def hello_web():
+    return render_template('base.html')
 
+### slect service ethernet customer
 
-@app.route('/ethernet/', methods=['POST'])
-def count():
+@app.route('/ethernet/')
+def ehernet():
+    return render_template('ethernet.html', service=service_customer)
+
+### select count discount 
+
+@app.route('/ethernet/customer/', methods=['POST'])
+def ethernet_customer():
     begin = request.form.get('begin')
     begin_date = date_time(begin)
-    print(begin_date)
 
     end = request.form.get('end')
     end_date = date_time(end)
-    print(end_date)
 
     id_service = request.form.get('services')
-    print(id_service)
     
     discount = count_dis(begin_date, end_date, id_service)
-    print(discount)
 
-    return render_template('inform.html', 
+    return render_template('inform_ethernet.html', 
                            discount=discount,
                            begin=begin, end=end,
                            service=service_customer)
+
+### select customer ktv
+
+@app.route('/ktv/')
+def ktv():
+    return render_template('ktv.html', ktv_service=ktv_service)
+
+### select general customer ktv
+
+@app.route('/ktv/general_ktv/')
+def general_ktv():
+    return render_template('ktv.html')
+
 
 
 if __name__ == '__main__':
