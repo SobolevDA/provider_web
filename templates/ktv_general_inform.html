@@ -1,0 +1,10 @@
+{% extends 'ktv.html' %}
+
+{% block ktv_general_inform %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{ count_customer_ktv }}  чебурашек 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endblock %}

@@ -2,12 +2,12 @@
 
 {% block ktv %}
 
-<form method="POST" action="/ktv/geberal_ktv/">
+<form method="POST" action="/ktv/general_ktv/">
         <div class="form-row align-items-center">
                 <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Общее кол-во абонентов КТВ</label>
             <div class="col-auto my-1">
                 
-            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="sevice_id">
               <option selected>Услуга КТВ</option>
               {% for ktv_id in ktv_service %}
               <option value="{{ ktv_id.id }}">{{ ktv_id.name }}</option>
@@ -19,5 +19,7 @@
           </div>
         </div>
       </form>
+{% block ktv_general_inform %}
+{% endblock %}
 
 {% endblock %}

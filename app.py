@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request
-from query_select import service_customer, count_dis, ktv_service
+from query_select import service_customer, count_dis, ktv_service, ktv_customer
 from query_data import date_time
 
 app = Flask(__name__)
 
 ### main rout
+
 
 @app.route('/')
 def hello_web():
@@ -12,11 +13,13 @@ def hello_web():
 
 ### slect service ethernet customer
 
+
 @app.route('/ethernet/')
 def ehernet():
     return render_template('ethernet.html', service=service_customer)
 
 ### select count discount 
+
 
 @app.route('/ethernet/customer/', methods=['POST'])
 def ethernet_customer():
@@ -37,15 +40,21 @@ def ethernet_customer():
 
 ### select customer ktv
 
+
 @app.route('/ktv/')
 def ktv():
     return render_template('ktv.html', ktv_service=ktv_service)
 
 ### select general customer ktv
 
-@app.route('/ktv/general_ktv/')
+
+@app.route('/ktv/general_ktv/', methods=['POST'])
 def general_ktv():
-    return render_template('ktv.html')
+    service_id = request.form.get('sevice_id')
+    count_customer_ktv = ktv_customer(service_id)
+    return render_template('ktv_general_inform.html', 
+                           count_customer_ktv=count_customer_ktv, 
+                           ktv_service=ktv_service)
 
 
 
