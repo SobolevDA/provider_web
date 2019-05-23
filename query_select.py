@@ -1,4 +1,4 @@
-from models_db import database, Service, Customer
+from models_db import database, Service, Customer, City, Street
 from models_db import Discount as DIS
 from models_db import LinkCustomerService as LCS
 
@@ -8,6 +8,9 @@ database.connect()
 service_customer = Service.select(Service.id, Service.name).where(Service.id << (97, 59, 58, 47, 50, 48, 46, 153, 49, 137))
 
 ktv_service = Service.select(Service.id, Service.name).where(Service.id << (99, 100))
+
+id_city = City.select(City.id, City.name).where(City.id << (1, 3))
+id_street = Street.select(Street.id, Street.name).where(Street.city << (1, 3))
 
 
 def count_dis(begin, end, id):

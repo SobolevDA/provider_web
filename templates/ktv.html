@@ -5,8 +5,7 @@
 <form method="POST" action="/ktv/general_ktv/">
         <div class="form-row align-items-center">
                 <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Общее кол-во абонентов КТВ</label>
-            <div class="col-auto my-1">
-                
+            <div class="col-auto my-1">   
             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="sevice_id">
               <option selected>Услуга КТВ</option>
               {% for ktv_id in ktv_service %}
@@ -15,11 +14,38 @@
             </select>
           </div>
           <div class="col-auto my-1">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">ЖГИ!!!</button>
           </div>
         </div>
       </form>
 {% block ktv_general_inform %}
 {% endblock %}
+<form method="POST" action="/ktv/promiser_ktv/">
+  <div class="form-row align-items-center">
+          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Должники КТВ</label>
+    <div class="col-auto my-1">      
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="street">
+        <option selected>Улица</option>
+        {% for street in id_street %}
+        <option value="{{ street.id }}">{{ street.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-auto my-1">   
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="sevice_id">
+        <option selected>Услуга КТВ</option>
+        {% for ktv_id in ktv_service %}
+        <option value="{{ ktv_id.id }}">{{ ktv_id.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-auto my-1">
+      <input type="number" name="limit" placeholder="Лимит долга" size="3">
+     </div>
+    <div class="col-auto my-1">
+      <button type="submit" class="btn btn-primary">ЖГИ!!!</button>
+    </div>
+  </div>
+</form>
 
 {% endblock %}
